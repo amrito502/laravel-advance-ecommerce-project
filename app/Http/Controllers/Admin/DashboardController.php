@@ -12,8 +12,5 @@ class DashboardController extends Controller
         return view('admin.dashboard', $data);
     }
 
-    public function admin_lists(){
-        $data['header_title'] = "Admin Lists";
-        return view('admin.admin.list', $data);
-    }
+    
 }
