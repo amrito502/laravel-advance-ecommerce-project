@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,11 +21,13 @@ Route::get('/', function () {
 Route::get('/admin',[AuthController::class,'admin_login'])->name('admin.login');
 Route::post('/admin',[AuthController::class,'auth_login_admin'])->name('auth.admin.login');
 Route::get('/admin/logout',[AuthController::class,'admin_logout'])->name('admin.logout');
-
+// ======admin routes group========
 Route::group(['middleware' => 'admin'], function(){
-    Route::get('/admin/dashboard', function () {return view('admin.dashboard');});
-    Route::get('/admin/admin/list', function () {return view('admin.admin.list');});
-    
+
+Route::get('/admin/dashboard',[DashboardController::class,'admin_dashboard'])->name('admin.dashboard');
+Route::get('/admin/admin/list',[DashboardController::class,'admin_lists'])->name('admin.lists');
+
+
 });
 
 

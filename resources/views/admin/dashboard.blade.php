@@ -274,7 +274,7 @@
     </div>
     <!-- /.content -->
   </div>
-
+</div>
 @endsection
 {{-- ========scripts====== --}}
 @section('scripts')
