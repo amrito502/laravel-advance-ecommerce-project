@@ -19,16 +19,15 @@ Route::get('/', function () {
 
 Route::get('/admin',[AuthController::class,'admin_login'])->name('admin.login');
 Route::post('/admin',[AuthController::class,'auth_login_admin'])->name('auth.admin.login');
-
 Route::get('/admin/logout',[AuthController::class,'admin_logout'])->name('admin.logout');
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
+Route::group(['middleware' => 'admin'], function(){
+    Route::get('/admin/dashboard', function () {return view('admin.dashboard');});
+    Route::get('/admin/admin/list', function () {return view('admin.admin.list');});
+    
 });
 
-Route::get('/admin/admin/list', function () {
-    return view('admin.admin.list');
-});
+
 
 
 
