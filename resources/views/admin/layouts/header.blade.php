@@ -42,6 +42,15 @@
               </li>
 
               <li class="nav-item mb-2">
+                <a href="{{ url('admin/sub_category/list') }}" class="nav-link @if(Request::segment(2) == 'sub_category') active @endif">
+                  <i class="nav-icon far fa-list-alt"></i>
+                  <p>
+                   Sub Category
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item mb-2">
                 <a href="{{ url('admin/product/list') }}" class="nav-link @if(Request::segment(2) == 'product') active @endif">
                     <i class="nav-icon fa-brands fa-product-hunt"></i>
                   <p>
