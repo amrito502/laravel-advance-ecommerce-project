@@ -16,19 +16,46 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body p-3">
+                                <p class="text-center text-success my-3">
+                                    <?php
+
+                                    use Illuminate\Support\Facades\Session;
+
+                                    $message = Session::get('success');
+                                    if ($message) {
+                                        echo $message;
+                                        Session::put('success', null);
+                                    }
+                                    ?>
+                                </p>
                                 <form action="" method="post">
                                     @csrf
                                     <div class="form-group mb-2">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" class="form-control mt-2">
+                                        <span class="text-danger">
+                                            @error('name')
+                                            {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="form-group mb-2">
                                         <label for="email">Email</label>
                                         <input type="text" name="email" class="form-control mt-2">
+                                        <span class="text-danger">
+                                            @error('email')
+                                            {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="form-group mb-2">
                                         <label for="password">Password</label>
                                         <input type="password" name="password" class="form-control mt-2">
+                                        <span class="text-danger">
+                                            @error('password')
+                                            {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="form-group mb-2">
                                         <label for="status">Status</label>

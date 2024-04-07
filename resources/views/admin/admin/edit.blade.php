@@ -22,9 +22,19 @@
                                         <label for="name">Name</label>
                                         <input type="text" value="{{ $getRecord->name }}" name="name" class="form-control mt-2">
                                     </div>
+                                    <span class="text-danger">
+                                        @error('name')
+                                        {{ $message }}
+                                        @enderror
+                                    </span>
                                     <div class="form-group mb-2">
                                         <label for="email">Email</label>
                                         <input type="text" value="{{ $getRecord->email }}" name="email" class="form-control mt-2">
+                                        <span class="text-danger">
+                                            @error('email')
+                                            {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <div class="form-group mb-2">
                                         <label for="password">Password</label>

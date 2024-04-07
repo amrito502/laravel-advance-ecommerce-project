@@ -22,7 +22,9 @@ class AdminController extends Controller
 
     public function insert(Request $request){
         $request->validate([
+            'name' => 'required',
             'email' => 'required|email|unique:users',
+            'password' => 'required',
         ]);
 
         $user = new User;
